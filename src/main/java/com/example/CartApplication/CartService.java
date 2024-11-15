@@ -17,6 +17,7 @@ public class CartService {
         for(Long itemId : itemIds){
             cart.add(new CartItem(itemId));
         }
+        session.setAttribute(CART_SESSION_KEY, cart);
     }
     public List<CartItem> getItems(HttpSession session){
         List<CartItem> cart = (List<CartItem>) session.getAttribute(CART_SESSION_KEY);

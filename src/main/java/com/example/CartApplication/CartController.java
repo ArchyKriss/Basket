@@ -14,13 +14,13 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
-    @PostMapping
+    @PostMapping("/add")
     public String addToCard(@RequestParam(value = "itemIds") Long[] itemId, HttpSession session){
         cartService.addItem(session, Arrays.asList(itemId));
         return "Успешно добавлено";
     }
 
-    @GetMapping
+    @GetMapping("/get")
     public List<CartItem> getCart(HttpSession session){
         return cartService.getItems(session);
     }
